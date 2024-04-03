@@ -15,9 +15,6 @@ const Dashboard = () => {
       });
 
       mediaRecorder.ondataavailable = ev => {
-
-        // const binayStream = {}
-        // console.log(ev.data);
         ws.current?.send(ev.data);
       };
 
@@ -69,11 +66,13 @@ const Dashboard = () => {
   }, []);
 
   return (
-    <div>
-      <h1>Dashboard</h1>
-      <div>
+    <div className='bg-black rounded-xl mx-auto w-90 h-90 flex flex-col justify-center items-center border border-white'>
+      <h1 className='text-white mb-1'>WebCam</h1>
+      <div className='text-white flex flex-col justify-center items-center mb-1'>
         <video ref={userVideoRef} autoPlay muted />
-        <button onClick={handleStartButtonClick}>Start</button>
+        <button className="bg-white text-black border border-white rounded px-5 py-2 mt-2" onClick={handleStartButtonClick}>
+          Start
+        </button>
       </div>
     </div>
   );
